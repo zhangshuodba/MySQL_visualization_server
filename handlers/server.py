@@ -563,7 +563,7 @@ class Kill(BaseHandler):
 		port = int(args[-1].get('port'))
 		for i in args[:-1]:
 			_id.append(i.get('Id'))
-			#if i.get('User') == "cathy":
+			#if i.get('User') == "xxx":
 				#break
 			#else:
 				#_id.append(i.get('Id'))
@@ -689,7 +689,7 @@ class SlowLog(BaseHandler):
 				slow_file = '/data/slow/%s' %('_'.join(host.split('.'))+'_'+str(port)+'_'+'slow')
 				slowlogcp = "sshpass -p %s scp -o StrictHostKeyChecking=no %s@%s:%s %s" %(os_password,os_user,host,path,slow_file)
 				create_process(slowlogcp)
-				cmd = "pt-query-digest --user=cathy --password=cathy --review h='100.73.20.3',P=13307,D=slow,t=%s --no-report --create-review-table   %s" %('_'.join(host.split('.'))+'_'+str(port),slow_file)
+				cmd = "pt-query-digest --user=xxx --password=xxx --review h='100.73.20.3',P=13307,D=slow,t=%s --no-report --create-review-table   %s" %('_'.join(host.split('.'))+'_'+str(port),slow_file)
 				create_process(cmd)
 				os.remove(slow_file)
 			except:
@@ -1050,8 +1050,8 @@ class SQLCheck(BaseHandler):
 			ddl_sql_text = []
 			dml_sql_text = []
 			init_sql_text = []
-			user = "cathy"
-			password = "cathy"
+			user = "xxx"
+			password = "xxx"
 			operate = "check"
 			
 			projectversion =args.get('projectversion')
@@ -1140,8 +1140,8 @@ class QPS(BaseHandler):
 	@run_on_executor
 	def do(self, args):
 		
-		#user = 'cathy'
-		#password = 'cathy'
+		#user = 'xxx'
+		#password = 'xxx'
 		ip = args.get('ip')
 		port = args.get('port')
 		instance = ip + '_' + str(port)
