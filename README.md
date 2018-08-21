@@ -11,10 +11,9 @@ python2.7 + tornado + jwt + MySQL
 python ops_server.py
 ```
 
-一个功能类实现解析:
+## 一个功能类实现解析
 
 .. code-block:: python
-
 class Example(BaseHandler):
 
 	executor = ThreadPoolExecutor(3)  #初始化线程池
@@ -38,10 +37,9 @@ class Example(BaseHandler):
 		return 'success'
 
 		
-基于JWT做无状态秘钥签发:
+## 基于JWT做无状态秘钥签发
 
 .. code-block:: python
-
 encoded = jwt.encode({
         'user_name': _list[0].get('user_name'),
         'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=600)},
@@ -49,14 +47,11 @@ encoded = jwt.encode({
                         algorithm='HS256'
                         )
 response = {'token':encoded.decode('ascii')}
-
 {'token': u'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJkYmEiLCJleHAiOjE1MzQ4NDA1MzB9.jkKuHNg098wEEZbQnY81f0UgimhqOWgPmTE1rqZDubI'}
 
-
-基于JWT做无状态秘钥验证:
+## 基于JWT做无状态秘钥验证:
 
 .. code-block:: python
-
 jwt.decode(
                 token,
                 SECRET_KEY,
