@@ -1,10 +1,8 @@
-## 当前版本：v1.0.0
-
-`注：基于tornado框架开发`
-
 ## 技术栈
 
 python2.7 + tornado + jwt + MySQL
+
+`注：restful 开发风格`
 
 ## run
 ```bush
@@ -22,7 +20,7 @@ class Example(BaseHandler):
 	@asynchronous  #长连接和短连接相关
 	@coroutine  #调用协成装饰器
 	def post(self):
-		args = self.get_all_arguments()
+		args = self.get_all_arguments()  #获取参数
 		ret = yield self.do(args)  #yield执行时记录当前环境，执行完成的流过来后再把记录加载进来
 		self.finish({'message': ret})  #关闭连接并返回结果
 
