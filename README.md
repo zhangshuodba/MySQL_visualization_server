@@ -39,7 +39,8 @@ class Example(BaseHandler):
 		
 ## 基于JWT做无状态秘钥签发
 
-.. code-block:: python
+```bush
+
 encoded = jwt.encode({
         'user_name': _list[0].get('user_name'),
         'exp': datetime.datetime.utcnow() + datetime.timedelta(seconds=600)},
@@ -47,16 +48,18 @@ encoded = jwt.encode({
                         algorithm='HS256'
                         )
 response = {'token':encoded.decode('ascii')}
-{'token': u'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJkYmEiLCJleHAiOjE1MzQ4NDA1MzB9.jkKuHNg098wEEZbQnY81f0UgimhqOWgPmTE1rqZDubI'}
+```
 
 ## 基于JWT做无状态秘钥验证:
 
-.. code-block:: python
+```bush
+
 jwt.decode(
                 token,
                 SECRET_KEY,
                 options=jwt_options
         )
+```
 
 
 ## 文件结构
