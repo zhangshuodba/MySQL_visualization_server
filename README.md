@@ -13,7 +13,8 @@ python ops_server.py
 
 ## 一个功能类实现解析
 
-.. code-block:: python
+```bush
+
 class Example(BaseHandler):
 
 	executor = ThreadPoolExecutor(3)  #初始化线程池
@@ -35,6 +36,7 @@ class Example(BaseHandler):
 		finally:
 			pass
 		return 'success'
+```
 
 		
 ## 基于JWT做无状态秘钥签发
@@ -48,6 +50,9 @@ encoded = jwt.encode({
                         algorithm='HS256'
                         )
 response = {'token':encoded.decode('ascii')}
+
+{'token': u'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJkYmEiLCJleHAiOjE1MzQ4NDA1MzB9.jkKuHNg098wEEZbQnY81f0UgimhqOWgPmTE1rqZDubI'}
+
 ```
 
 ## 基于JWT做无状态秘钥验证:
